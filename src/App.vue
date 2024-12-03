@@ -1,26 +1,38 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <MainHeader />
+    <LandmarkList :landmarks="landmarks" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MainHeader from './components/MainHeader.vue';
+import LandmarkList from './components/LandmarkList.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    MainHeader,  // Тук регистрираш MainHeader
+    LandmarkList
+  },
+  data() {
+    return {
+      landmarks: [
+        { name: "Eiffel Tower", country: "France", description: "Iconic Parisian landmark." },
+        { name: "Colosseum", country: "Italy", description: "Ancient Roman amphitheater." },
+        { name: "Big Ben", country: "United Kingdom", description: "Famous London clock tower." },
+        { name: "Sagrada Familia", country: "Spain", description: "Gaudí’s masterpiece in Barcelona." }
+      ]
+    };
   }
-}
+};
 </script>
 
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 20px;
 }
 </style>
